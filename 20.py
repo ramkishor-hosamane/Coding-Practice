@@ -32,6 +32,17 @@ class Linked_List:
 			cur.next =node 
 			node.next = x
 			self.head = node
+	def get_middle_node(self):
+		turtle = self.head.next
+		rabbit = self.head.next
+
+		while rabbit.next != self.head:
+			rabbit = rabbit.next.next
+			turtle = turtle.next
+		
+		return turtle
+
+
 
 	def display(self):
 		cur = self.head.next
@@ -39,6 +50,20 @@ class Linked_List:
 			print(cur.data,end=" -> ")
 			cur = cur.next
 		print(self.head.data)
+
+
+def change_pattern(L):
+	#Changing pattern
+	#find middle element
+	node1 = L.head.next.next
+	node2 = L.get_middle_node().next
+	print(node1.data,node2.data)
+	while node2!=L.head:
+		node1.data,node2.data = node2.data,node1.data,
+		node1 = node1.next.next
+		node2 = node2.next.next
+		
+	node1.data,node2.data = node2.data,node1.data,
 
 
 L = Linked_List()
@@ -50,13 +75,8 @@ for x in primary_school:
 	L.insert(x)
 for x in high_school:
 	L.insert(x)
-'''
-L.insert(10)
-L.insert(20)
-'''
+
+L.display()
+change_pattern(L)
 L.display()
 
-#Changing pattern
-#find middle element
-node2 = L.head.next
-p =  l.head.next
