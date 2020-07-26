@@ -55,16 +55,26 @@ class Linked_List:
 def change_pattern(L):
 	#Changing pattern
 	#find middle element
-	node1 = L.head.next.next
-	node2 = L.get_middle_node().next
-	print(node1.data,node2.data)
-	while node2!=L.head:
-		node1.data,node2.data = node2.data,node1.data,
-		node1 = node1.next.next
-		node2 = node2.next.next
-		
-	node1.data,node2.data = node2.data,node1.data,
+	node1 = L.head.next  #will be 'a'
+	node2 = L.get_middle_node().next # will be "A"
+	
+	last = L.head
+	first = L.head.next
 
+		
+	while node2!=L.head:
+		
+		temp1 = node1.next
+		temp2 = node2.next
+		
+		node1.next = node2
+		node2.next = temp1
+
+		node1 = temp1
+		node2 = temp2
+	node1.next =  node2
+	L.head = node2
+	L.head.next = first
 
 L = Linked_List()
 primary_school = ['a','b','c','d','e']
