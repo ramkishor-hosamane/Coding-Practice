@@ -26,7 +26,7 @@ class Occurence
 	static int get_occurence(int n,int d)
 	{
 		int count=0;
-		for(int i=1;i<=n;i++)
+		for(int i=d;i<=n;i++)
 		{
 			count+= get_count(i,d);
 		}
